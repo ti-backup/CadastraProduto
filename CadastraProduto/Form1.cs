@@ -32,6 +32,17 @@ namespace CadastraProduto
 
             lista.Add(prod);
             ExibeRegistros();
+            LimpaCampos();
+        }
+
+        private void LimpaCampos()
+        {
+            txtNome.Clear();
+            txtDescricao.Clear();
+            nudPreco.Value = 0;
+            nudPeriodo.Value = 1;
+
+            txtNome.Focus();
         }
 
         private void ExibeRegistros()
@@ -57,6 +68,18 @@ namespace CadastraProduto
         private void txtConsulta_TextChanged(object sender, EventArgs e)
         {
             ExibeRegistros(txtConsulta.Text);
+        }
+
+        private void Navegacao(object sender, KeyEventArgs e)
+        {
+            // COMPARA O CODIGO DA TECLA PRESSIONA
+            // COM O CODIGO DA TECLA ENTER
+            if (e.KeyCode == Keys.Enter)
+            {
+                // SIMULA ENTRADA DE DADOS PELO TECLADO
+                // SIMULA O PRESSIONAMENTO DA TECLA TAB
+                SendKeys.Send("{TAB}");
+            }
         }
     }
 }
